@@ -144,6 +144,8 @@ class DataBase {
         updatedObject: Omit<DataType, 'createdAt'>
     ): Promise<DataBaseResponse> => {
         try {
+            console.log(id, updatedObject);
+
             const result = await articleModel.findByIdAndUpdate(id, {
                 ...updatedObject,
             });

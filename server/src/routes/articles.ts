@@ -34,7 +34,11 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
 router.put('/:id/edit', async (req: Request, res: Response) => {
     const { id } = req.params;
     const object = req.body;
+    console.log(id, object);
+
     if (!validateDataType(object)) {
+        console.log('Invalid fields in the request body');
+
         return res
             .status(400)
             .json({ error: 'Invalid fields in the request body' });

@@ -1,12 +1,16 @@
 import './App.css';
-import { Button } from './components/ui/button';
+import Article from './components/Article';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
     return (
-        <>
-            <Button>Click me</Button>
-            <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        </>
+        <QueryClientProvider client={queryClient}>
+            <div className="border-red-600 m-4">
+                <Article />
+            </div>
+        </QueryClientProvider>
     );
 }
 

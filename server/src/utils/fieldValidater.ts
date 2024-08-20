@@ -7,6 +7,7 @@ export function validateDataType(data: any): data is ClientDataType {
         'id',
         'title',
         'description',
+        'markdown',
     ];
     const dataKeys = Object.keys(data) as (keyof ClientDataType)[];
 

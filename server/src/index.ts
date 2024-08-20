@@ -5,16 +5,20 @@ import articleRouter from './routes/articles';
 import DataBase, { DataBaseError, DataBaseResponse } from './db';
 dotenv.config();
 
+import cors from 'cors';
+
 export const database = new DataBase('blog');
 export type DataType = {
     id?: number;
     title?: string;
     createdAt?: number;
     description?: string;
+    markdown?: string;
 };
 database.connect();
 
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/articles', articleRouter);
